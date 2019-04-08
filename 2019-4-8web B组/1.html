@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          var x = function () {
+            console.log(a);
+        };
+
+        function y(f) {
+            var a = 2;
+            f();
+        }
+
+        y(x)
+        //Uncaught ReferenceError: a is not defined
+        // 因为上面代码将函数x作为参数，传入函数y。
+        // 但是，函数x是在函数y体外声明的，作用域绑定外层，因此找不到函数y的内部变量a，导致报错。
+        
+        // 注意：函数y 中运用参数 又重构了一个函数（列如 函数y中的参数f 重构了函数f()）,
+        // 而y(x)相当于 在函数y 内调用了函数x()  因为函数x()已经定义了  所以不再是重构
+
+
+        
+        </script>
+</body>
+</html>
